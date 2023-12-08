@@ -44,7 +44,7 @@ The following animation shows the application's POST, PUT, and DELETE routes for
 
 The following video shows the application's POST, PUT, and DELETE routes for tags and products being tested in Insomnia:
 
-![Alt text](<Assets/Screenshot 2023-12-07 at 11.12.04 PM.png>)(https://drive.google.com/file/d/1LMxTTCxMLkMSpcJDqX2mBNSKS6LK1WOv/view?usp=sharing)
+[![Alt text](<Assets/Screenshot 2023-12-07 at 11.12.04 PM.png>)](https://drive.google.com/file/d/1LMxTTCxMLkMSpcJDqX2mBNSKS6LK1WOv/view?usp=sharing)
 
 ## Usage
 
