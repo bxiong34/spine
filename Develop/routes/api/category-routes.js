@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, {
       // be sure to include its associated Products
-      include: [{ model: Product, as: 'Product' }]
+      include: [{ model: Product }]
     });
 
     if (!categoryData) {
@@ -39,7 +39,6 @@ router.post('/', async (req, res) => {
   // create a new category
   try {
     const categoryData = await Category.create({
-      id: req.body.id,
       category_name: req.body.category_name,
     });
     res.status(200).json(categoryData);

@@ -9,7 +9,7 @@ router.get('/', async(req, res) => {
   try {
     const productData = await Product.findAll({
       // be sure to include its associated Category and Tag data
-      include: [{ model: Category, Tag }],
+      include: [{ model: Category }, { model: Tag }],
     });
   res.status(200).json(productData);
   } catch (err) {
@@ -23,7 +23,7 @@ router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
         // be sure to include its associated Category and Tag data
-      include: [{ model: Product, as: 'Product' }]
+      include: [{ model: Category }, { model: Tag } ]
     });
 
     if (!productData) {
@@ -48,7 +48,12 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(req.body)
+  Product.create({
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    category_id: req.body.category_id
+  })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
